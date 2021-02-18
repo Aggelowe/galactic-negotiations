@@ -1,6 +1,8 @@
 plugins {
     id 'java-library'
+    id 'com.github.johnrengelman.shadow' version '2.0.4'
 }
+
 
 sourceCompatibility = targetCompatibility = '1.8'
 
@@ -8,9 +10,7 @@ dependencies {
 	compile files('lib/slick-util.jar')
     compile files('lib/logger.jar')
 	compile files('lib/lwjgl.jar')
-    compile files('lib/lwjgl_util.jar')
-	    
-
+    compile files('lib/lwjgl_util.jar')	
 }
 
 repositories {
@@ -27,8 +27,12 @@ sourceSets {
     }
 }
 
-jar {
+shadowJar {
     manifest {
-        attributes 'Main-Class': 'com.firespear.galacticnegotiations.Main'
+        attributes 'Main-Class': 'com.firespear.galacticnegotiations.Main' 
+    }
+    dependencies {
+    	include(files('lib/natives/liblwjgl.so'))
     }
 }
+

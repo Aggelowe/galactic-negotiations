@@ -6,8 +6,8 @@ connection.project.dir=
 eclipse.preferences.version=1
 gradle.user.home=
 java.home=
-jvm.arguments=
+jvm.arguments=-Djava.library.path\=./lib/natives/
 offline.mode=false
 override.workspace.settings=true
-show.console.view=false
+show.console.view=true
 show.executions.view=false
